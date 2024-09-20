@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar styles */
+:root {
+  --scrollbar-track-light: #f0f0f0;
+  --scrollbar-thumb-light: #c0c0c0;
+  --scrollbar-thumb-hover-light: #a0a0a0;
+  --scrollbar-track-dark: #2a2a2a;
+  --scrollbar-thumb-dark: #4a4a4a;
+  --scrollbar-thumb-hover-dark: #5a5a5a;
+}
+
+/* Scrollbar styles for WebKit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-light);
+}
+
+/* Scrollbar styles for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-light) var(--scrollbar-track-light);
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-dark);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-dark);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover-dark);
+  }
+
+  * {
+    scrollbar-color: var(--scrollbar-thumb-dark) var(--scrollbar-track-dark);
+  }
+}
+
