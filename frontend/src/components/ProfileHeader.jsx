@@ -69,7 +69,8 @@ const ProfileHeader = ({ userData, isOwnProfile, onSave }) => {
 
   // mutation to remove a connection
   const { mutate: removeConnection } = useMutation({
-    mutationFn: (userId) => axiosInstance.delete(`/connections/${userId}`),
+    mutationFn: async (userId) =>
+      await axiosInstance.delete(`/connections/${userId}`),
     onSuccess: () => {
       toast.success("Connection removed");
       refetchConnectionStatus();
@@ -80,7 +81,7 @@ const ProfileHeader = ({ userData, isOwnProfile, onSave }) => {
     },
   });
 
-  // get the connection state of the user
+  // get the connection state of the user-->using useMemo to prevent unnecessary re-renders
   const getConnectionStatus = useMemo(() => {
     if (isConnected) return "connected";
     if (!isConnected) return "not_connected";
