@@ -1,6 +1,6 @@
 import { Briefcase, X } from "lucide-react";
 import { useState } from "react";
-import { formatDate } from "../utils/dateutils";
+import { formatDate } from "../utils/dateUtils";
 
 const ExperienceSection = ({ userData, isOwnProfile, onSave }) => {
   const [isEditing, setIsEditing] = useState(false);
